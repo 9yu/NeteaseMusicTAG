@@ -9,15 +9,14 @@ function toUnicode(theString) {
   for (var i = 0; i < theString.length; i++) {
     var theUnicode = theString.charCodeAt(i).toString(16).toUpperCase();
     while (theUnicode.length < 4) {
-      theUnicode = '0' + theUnicode;
+      theUnicode = '0' + theUnicode
     }
     theUnicode = '\\u' + theUnicode;
-    unicodeString += theUnicode;
+    unicodeString += theUnicode
   }
-  return unicodeString;
+  return unicodeString
 }
-for (var i=0; i < tr_list.length; i++)
-{
+for (var i = 0; i < tr_list.length; i++) {
 	var td_list = tr_list[i].getElementsByTagName("td");
 	var mid = td_list[2].getElementsByTagName("span")[2].dataset.resId;
 	var mhref = td_list[1].getElementsByTagName("a")[0].href;
@@ -29,19 +28,18 @@ for (var i=0; i < tr_list.length; i++)
 	var malbum = toUnicode(td_list[4].getElementsByTagName("a")[0].title);
 	var malbumHref = td_list[4].getElementsByTagName("a")[0].href;
 
-	w.document.write('{' + '"id"' + ":" + '"' + mid + '"' + ',');
-	w.document.write('"href"' + ":" + '"' + mhref + '"' + ',');
-	w.document.write('"title"' + ":" + '"' + mtitle + '"' + ',');
-	w.document.write('"time"' + ":" + '"' + mtime + '"' + ',');
-	w.document.write('"pic"' + ":" + '"' + mpic + '"' + ',');
-	w.document.write('"author"' + ":" + '"' + mauthor + '"' + ',');
-	w.document.write('"album"' + ":" + '"' + malbum + '"' + ',');
-	w.document.write('"albumHref"' + ":" + '"' + malbumHref + '"' + ',');
-	if (i!=951)
-	{
-		w.document.write('"TAG"' + ":" + '""' + '},')
+	w.document.write('{"id":"' + mid + '",');
+	w.document.write('"href":"' + mhref + '",');
+	w.document.write('"title":"' + mtitle + '",');
+	w.document.write('"time":"' + mtime + '",');
+	w.document.write('"pic":"' + mpic + '",');
+	w.document.write('"author":"' + mauthor + '",');
+	w.document.write('"album":"' + malbum + '",');
+	w.document.write('"albumHref":"' + malbumHref + '",');
+	if (i!=951) {
+		w.document.write('"TAG":""},')
 	} else {
-		w.document.write('"TAG"' + ":" + '""' + '}')
+		w.document.write('"TAG":""}')
 	}
 }
 
