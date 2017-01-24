@@ -36,11 +36,10 @@ for (var i = 0; i < tr_list.length; i++) {
 	w.document.write('"author":"' + mauthor + '",');
 	w.document.write('"album":"' + malbum + '",');
 	w.document.write('"albumHref":"' + malbumHref + '",');
-	if (i!=951) {
+	if (i != tr_list.length - 1) {
 		w.document.write('"TAG":""},')
 	} else {
 		w.document.write('"TAG":""}')
 	}
 }
-
 w.document.write(']}');
